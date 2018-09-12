@@ -7,7 +7,6 @@
         {% for treasure in treasures %}
             <li>
                 <a href="{% url 'treasure_detail' pk=treasure.pk %}"><img src="{{ treasure.img_url }}" alt="" class="treasure-photo"></a>
-                <a href="{% url 'file_treasure_detail' pk=file_treasure.pk %}"><img src="{{ file_treasure.file_path.url }}" alt="" class="treasure-photo"></a>
             </li>
         {% endfor %}
     </ul>

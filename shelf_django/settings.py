@@ -25,7 +25,7 @@ SECRET_KEY = 'r9fqkqyg4eq!ckf#mp7&hataporaaukmi+w@k@@6-w-2!=c845'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://shelf-hope.herokuapp.com/']
 
 
 # Application definition
@@ -123,6 +123,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, ‘staticfiles’)
 LOGIN_REDIRECT_URL = 'treasure_list'
 LOGOUT_REDIRECT_URL = 'treasure_list'
 MEDIA_URL = '/media/'
