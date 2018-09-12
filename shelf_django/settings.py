@@ -1,3 +1,6 @@
+import dj_database_url
+db_from_env = dj_database_url.config()
+DATABASES[‘default’].update(db_from_env)
 """
 Django settings for shelf_django project.
 
@@ -128,3 +131,5 @@ LOGIN_REDIRECT_URL = 'treasure_list'
 LOGOUT_REDIRECT_URL = 'treasure_list'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
