@@ -28,7 +28,7 @@ SECRET_KEY = 'r9fqkqyg4eq!ckf#mp7&hataporaaukmi+w@k@@6-w-2!=c845'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','https://shelf-hope.herokuapp.com/']
+ALLOWED_HOSTS = ['localhost','shelf-hope.herokuapp.com']
 
 
 # Application definition
