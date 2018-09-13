@@ -18,3 +18,11 @@ class File_Treasure(models.Model):
 
     def __str__(self):
         return self.title
+
+class Site_Style(models.Model):
+    font_color = models.CharField(max_length=1000)
+    background_color = models.CharField(max_length=1000)
+    background_image = models.FileField(upload_to="documents/")
+
+    def __str__(self):
+        return self.title

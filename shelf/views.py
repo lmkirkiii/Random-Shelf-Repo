@@ -83,3 +83,13 @@ def file_treasure_edit(request, pk):
 def file_treasure_delete(request, pk):
     File_Treasure.objects.get(id=pk).delete()
     return redirect('file_treasure_list')
+
+def site_style_create(request):
+    if request.method == 'POST':
+         form = Site_Style(request.POST, request.FILES)
+         if form.is_valid():
+            site_style = form.save()
+            return redirect('file_treasure_detail', pk=file_treasure.pk)
+    else:
+        form = File_TreasureForm()
+    return render(request, 'shelf/file_treasure_form.html', {'form': form})
