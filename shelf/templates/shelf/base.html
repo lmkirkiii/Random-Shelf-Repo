@@ -2,15 +2,21 @@
 <html>
     <head>
         <title>Random Shelf</title>
+        <!-- <link type="text/css" rel="stylesheet" href="{% static 'materialize/bin/materialize.css' %}"  media="screen,projection"/> -->
+        <link rel="stylesheet" href="{% static 'css/shelf.css' %}">
     </head>
     <body>
         <h1>Welcome to Random Shelf</h1>
         <nav>
-            <a href="">About Random Shelf</a>
-            <a href="">QA</a>
             <div class="user-info">
                 {% if user.is_authenticated %}
                     Welcome, {{ user.username }}
+                    <a href="">About Random Shelf</a>
+                    <a href="">QA</a>
+                    <a href="/treasures_file/list">File Treasure List</a>
+                    <a href="/treasures/list"> Treasure List</a>
+                    <a href="/treasures/new">Add a Treasure</a>
+                    <a href="/treasures_file/new">Add a Treasure By File</a>
                     <a href="{% url 'logout' %}">Signout</a>
                 {% else %}
                     <a href="{% url 'login' %}">Login</a>

@@ -55,8 +55,8 @@ def file_treasure_detail(request, pk):
     return render(request, 'shelf/file_treasure_detail.html', {'file_treasure': file_treasure})
 
 def file_treasure_list(request):
-    file_treasures = FileTreasure.objects.all()
-    return render(request, 'shelf/treasure_list.html', {'file_treasures': file_treasures})
+    file_treasures = File_Treasure.objects.all()
+    return render(request, 'shelf/file_treasure_list.html', {'file_treasures': file_treasures})
 
 
 def file_treasure_create(request):
@@ -68,3 +68,18 @@ def file_treasure_create(request):
     else:
         form = File_TreasureForm()
     return render(request, 'shelf/file_treasure_form.html', {'form': form})
+
+def file_treasure_edit(request, pk):
+    file_treasure = File_Treasure.objects.get(pk=pk)
+    if request.method == "POST":
+        form = File_TreasureForm(request.POST, request.FILES, instance=file_treasure)
+        if form.is_valid():
+            file_treasure = form.save()
+            return redirect('file_treasure_detail', pk=file_treasure.pk)
+    else:
+        form = File_TreasureForm(instance=file_treasure)
+    return render(request, 'shelf/file_treasure_form.html', {'form': form})
+
+def file_treasure_delete(request, pk):
+    File_Treasure.objects.get(id=pk).delete()
+    return redirect('file_treasure_list')

@@ -1,0 +1,11 @@
+{% extends 'shelf/base.html' %}
+
+{% block content %}
+    <ul>
+        {% for file_treasure in file_treasures %}
+            <li>
+                <a href="{% url 'file_treasure_detail' pk=file_treasure.pk %}"><img src="{{ file_treasure.file_path.url }}" alt="" class="treasure-photo"></a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

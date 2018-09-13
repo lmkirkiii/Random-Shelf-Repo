@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'materialize',
     'shelf',
     'django_extensions'
 ]
@@ -139,5 +140,8 @@ LOGIN_REDIRECT_URL = 'treasure_list'
 LOGOUT_REDIRECT_URL = 'treasure_list'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATICFILES_DIRS = (
+   os.path.join(BASE_DIR, "static"),
+)
 
 

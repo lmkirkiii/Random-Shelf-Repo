@@ -1,0 +1,14 @@
+body{
+    background-color: blue;
+    color: white;
+}
+a{
+    color: white;
+}
+ul{
+    list-style: none;
+}
+img{
+    height: 300px;
+    width: 300px;
+}
