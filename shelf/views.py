@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.http import HttpResponseRedirect
-from .models import Treasure, File_Treasure
-from .forms import TreasureForm, File_TreasureForm
+from .models import Treasure, File_Treasure, Site_Style, Treasure_Ultra
+from .forms import TreasureForm, File_TreasureForm, Site_StyleForm, Treasure_UltraForm
 from django.contrib.auth.forms import UserCreationForm
 
 def sign_up(request):
@@ -16,80 +16,37 @@ def sign_up(request):
         form = UserCreationForm()
     return render(request, 'registration/signup.html', {'form': form})
 
-def treasure_list(request):
-    treasures = Treasure.objects.all()
-    return render(request, 'shelf/treasure_list.html', {'treasures': treasures})
+def ultra_treasure_detail(request, pk):
+    ultra_treasure = Treasure_Ultra.objects.get(id=pk)
+    return render(request, 'shelf/ultra_treasure_detail.html', {'ultra_treasure': ultra_treasure})
 
-def treasure_detail(request, pk):
-    treasure = Treasure.objects.get(id=pk)
-    return render(request, 'shelf/treasure_detail.html', {'treasure': treasure})
+def ultra_treasure_list(request):
+    ultra_treasures = Treasure_Ultra.objects.all()
+    return render(request, 'shelf/ultra_treasure_list.html', {'ultra_treasures': ultra_treasures})
 
-def treasure_create(request):
+def ultra_treasure_create(request):
     if request.method == 'POST':
-         form = TreasureForm(request.POST)
+         form = Treasure_UltraForm(request.POST, request.FILES)
          if form.is_valid():
-            treasure = form.save()
-            return redirect('treasure_detail', pk=treasure.pk)
+            ultra_treasure = form.save()
+            return redirect('ultra_treasure_detail', pk=ultra_treasure.pk)
     else:
-        form = TreasureForm()
-    return render(request, 'shelf/treasure_form.html', {'form': form})
+        form = Treasure_UltraForm()
+    return render(request, 'shelf/ultra_treasure_form.html', {'form': form})
 
-def treasure_edit(request, pk):
-    treasure = Treasure.objects.get(pk=pk)
+
+def ultra_treasure_edit(request, pk):
+    ultra_treasure = Treasure_Ultra.objects.get(pk=pk)
     if request.method == "POST":
-        form = TreasureForm(request.POST, instance=treasure)
+        form = Treasure_UltraForm(request.POST, request.FILES, instance=ultra_treasure)
         if form.is_valid():
-            treasure = form.save()
-            return redirect('treasure_detail', pk=treasure.pk)
+            ultra_treasure = form.save()
+            return redirect('ultra_treasure_detail', pk=ultra_treasure.pk)
     else:
-        form = TreasureForm(instance=treasure)
-    return render(request, 'shelf/treasure_form.html', {'form': form})
+        form = Treasure_UltraForm(instance=ultra_treasure)
+    return render(request, 'shelf/ultra_treasure_form.html', {'form': form})
 
 
-def treasure_delete(request, pk):
-    Treasure.objects.get(id=pk).delete()
-    return redirect('treasure_list')
-
-def file_treasure_detail(request, pk):
-    file_treasure = File_Treasure.objects.get(id=pk)
-    return render(request, 'shelf/file_treasure_detail.html', {'file_treasure': file_treasure})
-
-def file_treasure_list(request):
-    file_treasures = File_Treasure.objects.all()
-    return render(request, 'shelf/file_treasure_list.html', {'file_treasures': file_treasures})
-
-
-def file_treasure_create(request):
-    if request.method == 'POST':
-         form = File_TreasureForm(request.POST, request.FILES)
-         if form.is_valid():
-            file_treasure = form.save()
-            return redirect('file_treasure_detail', pk=file_treasure.pk)
-    else:
-        form = File_TreasureForm()
-    return render(request, 'shelf/file_treasure_form.html', {'form': form})
-
-def file_treasure_edit(request, pk):
-    file_treasure = File_Treasure.objects.get(pk=pk)
-    if request.method == "POST":
-        form = File_TreasureForm(request.POST, request.FILES, instance=file_treasure)
-        if form.is_valid():
-            file_treasure = form.save()
-            return redirect('file_treasure_detail', pk=file_treasure.pk)
-    else:
-        form = File_TreasureForm(instance=file_treasure)
-    return render(request, 'shelf/file_treasure_form.html', {'form': form})
-
-def file_treasure_delete(request, pk):
-    File_Treasure.objects.get(id=pk).delete()
-    return redirect('file_treasure_list')
-
-def site_style_create(request):
-    if request.method == 'POST':
-         form = Site_Style(request.POST, request.FILES)
-         if form.is_valid():
-            site_style = form.save()
-            return redirect('file_treasure_detail', pk=file_treasure.pk)
-    else:
-        form = File_TreasureForm()
-    return render(request, 'shelf/file_treasure_form.html', {'form': form})
+def ultra_treasure_delete(request, pk):
+    Treasure_Ultra.objects.get(id=pk).delete()
+    return redirect('ultra_treasure_list')

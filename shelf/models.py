@@ -26,3 +26,18 @@ class Site_Style(models.Model):
 
     def __str__(self):
         return self.title
+
+class Treasure_Ultra(models.Model):
+    title = models.CharField(max_length=1000)
+    story = models.CharField(max_length=1000)
+    date_thrown_away = models.DateTimeField()
+    foreground_image = models.FileField(upload_to="documents/")
+    border_color = models.CharField(max_length=1000)
+    font_color = models.CharField(max_length=1000)
+    treasure_height = models.CharField(max_length=1000)
+    treasure_width = models.CharField(max_length=1000)
+    background_color = models.CharField(max_length=1000)
+    background_image = models.FileField(upload_to="documents/")
+    
+    def __str__(self):
+        return self.title

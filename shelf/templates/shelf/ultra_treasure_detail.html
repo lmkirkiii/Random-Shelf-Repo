@@ -1,0 +1,12 @@
+{% extends 'shelf/base.html' %}
+{% block content %}
+<div class="shelf" style="margin:20px;padding: 100px; size: 100%; background-position: center; background-repeat:no-repeat; background-size: cover; background-image: url({{ultra_treasure.background_image.url }}); border: 4px solid {{ultra_treasure.border_color}}; border-radius: 25px; color:{{ultra_treasure.font_color}} ">
+<h1 style="font-size: 40px; margin-top: 5px;">{{ultra_treasure.title}}</h1>
+<a href="{% url 'ultra_treasure_edit' pk=ultra_treasure.pk %}"style="margin:10px;">EDIT</a> <a href="{% url 'ultra_treasure_delete' pk=ultra_treasure.pk %}"style="margin:10px;">DELETE</a></h2>
+<h4 style="padding: 20px;background-color:{{ultra_treasure.background_color}}; border:4px solid {{ultra_treasure.border_color}} ">{{ ultra_treasure.story }}</h4>
+
+
+
+<img style="  height: {{ultra_treasure.treasure_height}}; width:{{ultra_treasure.treasure_width}} "  src="{{ ultra_treasure.foreground_image.url }}" alt="" class="treasure-photo">
+</div>
+{% endblock %}

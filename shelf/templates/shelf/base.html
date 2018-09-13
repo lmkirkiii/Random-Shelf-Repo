@@ -1,26 +1,24 @@
 {% load staticfiles %}
 <html>
     <head>
-        <title>Random Shelf</title>
+        <title>Shelf</title>
         <!-- <link type="text/css" rel="stylesheet" href="{% static 'materialize/bin/materialize.css' %}"  media="screen,projection"/> -->
         <link rel="stylesheet" href="{% static 'css/shelf.css' %}">
     </head>
-    <body>
-        <h1>Welcome to Random Shelf</h1>
+    <body style="color:{{sight_style.font_color}};">
+        <h1>Welcome to Shelf</h1>
         <nav>
             <div class="user-info">
                 {% if user.is_authenticated %}
-                    Welcome, {{ user.username }}
-                    <a href="">About Random Shelf</a>
-                    <a href="">QA</a>
-                    <a href="/treasures_file/list">File Treasure List</a>
-                    <a href="/treasures/list"> Treasure List</a>
-                    <a href="/treasures/new">Add a Treasure</a>
-                    <a href="/treasures_file/new">Add a Treasure By File</a>
-                    <a href="{% url 'logout' %}">Signout</a>
+                    Hello {{ user.username }}
+                    <a style="font-size: 16px;margin:5px;text-decoration: none;color: red;"href="">About Random Shelf</a>
+                    <a style="font-size: 16px;margin:5px;text-decoration: none;color: lightblue;"href="/ultra_treasures/list">Shelf Treasure List</a>
+                    <a style="font-size: 16px;margin:5px;text-decoration: none;color: yellow;"href="/ultra_treasures/new">Shelf Treasure New</a>            
+                    <a style="font-size: 16px;margin:5px;text-decoration: none;color: pink;"href="{% url 'logout' %}">Signout</a>
                 {% else %}
                     <a href="{% url 'login' %}">Login</a>
                     <a href="{% url 'signup' %}">Sign Up</a>
+                    <img style="height:600px; width:600px;" src="https://i.imgur.com/wjrG9Sw.png" alt="shelf">
                 {% endif %}
             </div>
         </nav>
