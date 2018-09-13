@@ -11,7 +11,7 @@ def sign_up(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('treasure_list')
+            return redirect('/')
     else:
         form = UserCreationForm()
     return render(request, 'registration/signup.html', {'form': form})
@@ -50,3 +50,6 @@ def ultra_treasure_edit(request, pk):
 def ultra_treasure_delete(request, pk):
     Treasure_Ultra.objects.get(id=pk).delete()
     return redirect('ultra_treasure_list')
+
+def about_ultra_treasure_list(request):
+    return render(request, 'shelf/about_ultra_treasure_list.html')
