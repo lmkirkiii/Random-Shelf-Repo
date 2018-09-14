@@ -4,6 +4,8 @@ from django.http import HttpResponseRedirect
 from .models import Treasure, File_Treasure, Site_Style, Treasure_Ultra
 from .forms import TreasureForm, File_TreasureForm, Site_StyleForm, Treasure_UltraForm
 from django.contrib.auth.forms import UserCreationForm
+import operator
+from django.db.models import Q
 
 def sign_up(request):
     if request.method == 'POST':
@@ -53,3 +55,4 @@ def ultra_treasure_delete(request, pk):
 
 def about_ultra_treasure_list(request):
     return render(request, 'shelf/about_ultra_treasure_list.html')
+
