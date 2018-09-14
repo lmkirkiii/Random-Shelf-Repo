@@ -6,7 +6,7 @@
 <h1 style="padding: 10px;border-radius: 25px;background-color:{{ultra_treasure.background_color}}; border:4px solid {{ultra_treasure.border_color}};font-size: 35px; margin-top: 5px;">{{ultra_treasure.title}}</h1>
 <a href="{% url 'ultra_treasure_edit' pk=ultra_treasure.pk %}"style="padding: 10px;margin:10px;border-radius: 25px;background-color:{{ultra_treasure.background_color}}; border:4px solid {{ultra_treasure.border_color}};font-size: 16px; margin-top: 5px;padding:5px;">EDIT</a> <a href="{% url 'ultra_treasure_delete' pk=ultra_treasure.pk %}"style="margin:10px;border-radius: 25px;padding:5px;background-color:{{ultra_treasure.background_color}}; border:4px solid {{ultra_treasure.border_color}};font-size: 16px; margin-top: 5px;">DELETE</a></h2>
 <h4 style=" border-radius: 25px;padding: 20px;background-color:{{ultra_treasure.background_color}}; border:4px solid {{ultra_treasure.border_color}} ">{{ ultra_treasure.story }}</h4>
-<h4 style=" border-radius: 25px;padding: 20px;background-color:{{ultra_treasure.background_color}}; border:4px solid {{ultra_treasure.border_color}} ">This Item Left my Life: {{ultra_treasure.date_thrown_away}}</h4>
+<h4 style=" border-radius: 25px;padding: 20px;background-color:{{ultra_treasure.background_color}}; border:4px solid {{ultra_treasure.border_color}} ">This Entry Was Made: {{ultra_treasure.date_thrown_away}}</h4>
 
 
 
