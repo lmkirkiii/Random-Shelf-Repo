@@ -6,19 +6,18 @@
         <link rel="stylesheet" href="{% static 'css/shelf.css' %}">
     </head>
     <body style="color:{{sight_style.font_color}};">
-        <h1>Welcome to Shelf</h1>
+        <h1>Random Shelf</h1>
         <nav>
             <div class="user-info">
                 {% if user.is_authenticated %}
                     Hello {{ user.username }}
-                    <a style="font-size: 16px;margin:5px;text-decoration: none;color: red;"href="">About Random Shelf</a>
+                    <a style="font-size: 16px;margin:5px;text-decoration: none;color: red;"href="/ultra_treasures/image">Home Shelf</a>
                     <a style="font-size: 16px;margin:5px;text-decoration: none;color: lightblue;"href="/ultra_treasures/list">Shelf Treasure List</a>
                     <a style="font-size: 16px;margin:5px;text-decoration: none;color: yellow;"href="/ultra_treasures/new">Shelf Treasure New</a>            
                     <a style="font-size: 16px;margin:5px;text-decoration: none;color: pink;"href="{% url 'logout' %}">Signout</a>
                 {% else %}
-                    <a href="{% url 'login' %}">Login</a>
-                    <a href="{% url 'signup' %}">Sign Up</a>
-                    <img style="height:600px; width:600px;" src="https://i.imgur.com/wjrG9Sw.png" alt="shelf">
+                    <a style="font-size: 16px;margin:5px;text-decoration: none;color: pink;" href="{% url 'login' %}">Login</a>
+                    <a style="font-size: 16px;margin:5px;text-decoration: none;color: pink;" href="{% url 'signup' %}">Sign Up</a>
                 {% endif %}
             </div>
 

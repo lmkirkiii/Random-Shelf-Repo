@@ -1,12 +1,14 @@
 {% extends 'shelf/base.html' %}
 {% block content %}
+
 <div class="shelf" style="margin:20px;padding: 100px; size: 100%; background-position: center; background-repeat:no-repeat; background-size: cover; background-image: url({{ultra_treasure.background_image.url }}); border: 4px solid {{ultra_treasure.border_color}}; border-radius: 25px; color:{{ultra_treasure.font_color}} ">
-<h1 style="font-size: 40px; margin-top: 5px;">{{ultra_treasure.title}}</h1>
-<a href="{% url 'ultra_treasure_edit' pk=ultra_treasure.pk %}"style="margin:10px;">EDIT</a> <a href="{% url 'ultra_treasure_delete' pk=ultra_treasure.pk %}"style="margin:10px;">DELETE</a></h2>
-<h4 style="padding: 20px;background-color:{{ultra_treasure.background_color}}; border:4px solid {{ultra_treasure.border_color}} ">{{ ultra_treasure.story }}</h4>
+<img style="margin-bottom:20px;border:3px solid {{ultra_treasure.border_color}}; border-radius:10px;background-color:{{ultra_treasure.background_color}};height: {{ultra_treasure.treasure_height}}; width:{{ultra_treasure.treasure_width}}; "  src="{{ ultra_treasure.foreground_image.url }}" alt="" class="treasure-photo">
+<h1 style="padding: 10px;border-radius: 25px;background-color:{{ultra_treasure.background_color}}; border:4px solid {{ultra_treasure.border_color}};font-size: 35px; margin-top: 5px;">{{ultra_treasure.title}}</h1>
+<a href="{% url 'ultra_treasure_edit' pk=ultra_treasure.pk %}"style="padding: 10px;margin:10px;border-radius: 25px;background-color:{{ultra_treasure.background_color}}; border:4px solid {{ultra_treasure.border_color}};font-size: 16px; margin-top: 5px;padding:5px;">EDIT</a> <a href="{% url 'ultra_treasure_delete' pk=ultra_treasure.pk %}"style="margin:10px;border-radius: 25px;padding:5px;background-color:{{ultra_treasure.background_color}}; border:4px solid {{ultra_treasure.border_color}};font-size: 16px; margin-top: 5px;">DELETE</a></h2>
+<h4 style=" border-radius: 25px;padding: 20px;background-color:{{ultra_treasure.background_color}}; border:4px solid {{ultra_treasure.border_color}} ">{{ ultra_treasure.story }}</h4>
+<h4 style=" border-radius: 25px;padding: 20px;background-color:{{ultra_treasure.background_color}}; border:4px solid {{ultra_treasure.border_color}} ">This Item Left my Life: {{ultra_treasure.date_thrown_away}}</h4>
 
 
 
-<img style="  height: {{ultra_treasure.treasure_height}}; width:{{ultra_treasure.treasure_width}} "  src="{{ ultra_treasure.foreground_image.url }}" alt="" class="treasure-photo">
 </div>
 {% endblock %}

@@ -4,6 +4,7 @@ from . import views
 urlpatterns = [
     
     path('', views.about_ultra_treasure_list, name='about_ultra_treasure_list'),
+    path('ultra_treasures/image', views.about_ultra_treasure_list, name='about_ultra_treasure_list'),
     path('ultra_treasures/list', views.ultra_treasure_list, name='ultra_treasure_list'),
     path('ultra_treasures/<int:pk>', views.ultra_treasure_detail, name='ultra_treasure_detail'),
     path('ultra_treasures/new', views.ultra_treasure_create, name='ultra_treasure_create'),
