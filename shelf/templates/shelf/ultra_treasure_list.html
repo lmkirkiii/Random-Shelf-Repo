@@ -5,7 +5,7 @@
     <ul sytle="margin: 0 auto;text-align: center;">
         {% for ultra_treasure in ultra_treasures %}
             <li style="background-color:{{ultra_treasure.background_color}};display: inline-block;vertical-align: top; margin: 5px;border-radius:10px;border:5px solid {{ultra_treasure.border_color}};">
-                <a href="{% url 'ultra_treasure_detail' pk=ultra_treasure.pk %}"><img  src="{{ ultra_treasure.foreground_image.url }}" alt="" class="treasure-photo"></a>
+                <a href="{% url 'ultra_treasure_detail' pk=ultra_treasure.pk %}"><img  src="{{ ultra_treasure.foreground_image}}" alt="" class="treasure-photo"></a>
             </li>
         {% endfor %}
     </ul>
